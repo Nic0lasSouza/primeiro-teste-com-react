@@ -1,15 +1,18 @@
-import React, { useState } from 'react'
-import {v4 as uuidv4} from 'uuid'
-import './App.css'
-import AddTask from './components/AddTask'
-import Tasks from './components/Tasks'
+import React, { useState } from 'react';
+import {v4 as uuidv4} from 'uuid';
+
+import './App.css';
+
+import Header from './components/Header';
+import AddTask from './components/AddTask';
+import Tasks from './components/Tasks';
 
 const App = () => {
   // let message = "Hello word"
   const [tasks, setTasks] = useState([
     {
       id:'1',
-      title: 'estudar programação',
+      title: 'Estudar programação',
       completed : false,
     },
     {
@@ -42,6 +45,7 @@ const App = () => {
   return (
     <>
     <div className="container">
+      <Header />
       <AddTask handleTaskAddition={handleTaskAddition}/>
       <Tasks tasks={tasks} handleTaskClick={handleTaskClick} handleTaskDeletion = {handleTaskDeletion}/>
     </div>
