@@ -20,13 +20,13 @@ const App = () => {
   ]);
   const handleTaskClick = (tasksId) =>{
     const newTask = tasks.map(task =>{
-      if (task.id == tasksId) return{... task, completed: !task.completed}
+      if (task.id === tasksId) return{... task, completed: ! task.completed}
       return task;
     })
     setTasks(newTask)
-  }
+  };
   const handleTaskAddition = (tasksTitle) =>{
-    const newTask = [... tasks, {
+    const newTask = [... tasks,{
       title: tasksTitle,
       id: uuidv4(),
       completed: false,
@@ -36,7 +36,7 @@ const App = () => {
   };
 
   const handleTaskDeletion = (tasksId) =>{
-    const newTasks = tasks.filter(task => task.id != tasksId)
+    const newTasks = tasks.filter(task => task.id !== tasksId)
     setTasks(newTasks)
   }
   return (
@@ -45,7 +45,8 @@ const App = () => {
       <AddTask handleTaskAddition={handleTaskAddition}/>
       <Tasks tasks={tasks} handleTaskClick={handleTaskClick} handleTaskDeletion = {handleTaskDeletion}/>
     </div>
+
     </>
-  );
+  )
 };
 export default App;
